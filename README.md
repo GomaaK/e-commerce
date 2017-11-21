@@ -21,6 +21,36 @@ By creating this I don't claim:
 
 This is only my way of answering my students recurring questions while giving them a taste of how I would approach things.
 
-# Links to the rest of the repositories
 
-None (for now)
+Things I have to cover:
+
+## Ruby version
+  2.3.1
+
+## System dependencies
+
+TBD
+
+## Configuration
+
+TBD
+
+## Database creation
+
+TBD
+
+## Database initialization
+
+TBD
+
+## How to run the test suite
+
+TBD
+
+## Services (job queues, cache servers, search engines, etc.)
+
+TBD
+
+## Deployment instructions
+
+TBD
