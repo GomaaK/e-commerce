@@ -22,35 +22,27 @@ By creating this I don't claim:
 This is only my way of answering my students recurring questions while giving them a taste of how I would approach things.
 
 
-Things I have to cover:
-
 ## Ruby version
   2.3.1
 
 ## System dependencies
 
-TBD
+To run this project you only need:
+- [Docker](https://docs.docker.com/engine/installation/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Configuration
 
-TBD
+Create your own version of the `.env` file using `.env.example` as a reference
 
-## Database creation
+## Run the server
 
-TBD
-
-## Database initialization
-
-TBD
+run `docker-compose up --build` and go to your `0.0.0.0:RAILS_PORT`
 
 ## How to run the test suite
 
-TBD
-
-## Services (job queues, cache servers, search engines, etc.)
-
-TBD
+`docker-compose build && docker-compose run railsapp rspec`
 
 ## Deployment instructions
 
-TBD
+CI with CircleCI
