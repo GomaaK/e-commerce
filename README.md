@@ -45,4 +45,4 @@ run `docker-compose up --build` and go to your `0.0.0.0:RAILS_PORT`
 
 ## Deployment instructions
 
-TBD
+CI with CircleCI
