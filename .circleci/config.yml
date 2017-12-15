@@ -5,7 +5,7 @@ jobs:
       # specify the version you desire here
       - image: circleci/ruby:2.4.1-node-browsers
         environment:
-          PGHOST: "postgres://rails:password@127.0.0.1:5432/e-commerce-test"
+          DATABASE_URL: "postgres://rails:password@127.0.0.1:5432/e-commerce-test"
           RAILS_ENV: test
       - image: circleci/postgres:9.5-alpine
         environment:
