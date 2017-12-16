@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.4.1-node-browsers
@@ -64,7 +64,7 @@ jobs:
           path: /tmp/test-results
           destination: test-results
 
-  update_docker_and_deploy:
+  update_docker:
     docker:
       # specify the version you desire here
       - image: docker/17.05.0-ce-git
@@ -72,6 +72,8 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - checkout
+      - setup_remote_docker
       - run:
         name: Install dependencies
         command: |
@@ -88,9 +90,9 @@ jobs:
 
 workflows:
   version: 2
-  update_docker_and_deploy:
+  build:
     jobs:
-      - build
+      - test
       - docker_and_deploy:
           requires:
-            - build
+            - test
