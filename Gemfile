@@ -50,6 +50,8 @@ group :test do
   gem 'rspec-collection_matchers'
   gem 'rspec-its'
   gem 'shoulda-matchers', '~> 3.1'
+  # formatting for circle ci
+  gem "rspec_junit_formatter"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
