@@ -93,6 +93,6 @@ workflows:
   build:
     jobs:
       - test
-      - docker_and_deploy:
+      - update_docker:
           requires:
             - test
