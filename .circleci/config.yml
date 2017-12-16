@@ -67,7 +67,7 @@ jobs:
   update_docker:
     docker:
       # specify the version you desire here
-      - image: docker/17.05.0-ce-git
+      - image: docker:17.05.0-ce-git
 
     working_directory: ~/repo
 
