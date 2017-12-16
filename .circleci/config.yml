@@ -80,10 +80,12 @@ jobs:
             apk add --no-cache py-pip=9.0.0-r1
             pip install docker-compose==1.15.0
       - run:
+          name: Building image
+          command: docker-compose build
+      - run:
           name: Push application docker image
           command: |
             docker login -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
-            docker-compose build
             docker tag repo_railsapp $DOCKER_HUB_USER_ID/ecommerce_railsapp:$CIRCLE_SHA1
             docker tag repo_railsapp $DOCKER_HUB_USER_ID/ecommerce_railsapp:latest
             docker push $DOCKER_HUB_USER_ID/ecommerce_railsapp:$CIRCLE_SHA1
