@@ -63,3 +63,34 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+  update_docker_and_deploy:
+    docker:
+      # specify the version you desire here
+      - image: docker/17.05.0-ce-git
+
+    working_directory: ~/repo
+
+    steps:
+      - run:
+        name: Install dependencies
+        command: |
+          apk add --no-cache py-pip=9.0.0-r1
+          pip install docker-compose==1.15.0
+      - run:
+        name: Push application docker image
+        command: |
+          docker login -e $DOCKER_HUB_EMAIL -u $DOCKER_HUB_USER_ID -p $DOCKER_HUB_PWD
+          docker-compose build
+          docker tag ecommerce_railsapp $DOCKER_HUB_USER_ID/ecommerce_railsapp:$CIRCLE_SHA1
+          docker tag ecommerce_railsapp $DOCKER_HUB_USER_ID/ecommerce_railsapp:latest
+          docker tag push $DOCKER_HUB_USER_ID/ecommerce_railsapp:$CIRCLE_SHA1
+
+workflows:
+  version: 2
+  update_docker_and_deploy:
+    jobs:
+      - build
+      - docker_and_deploy:
+          requires:
+            - build
