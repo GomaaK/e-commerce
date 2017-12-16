@@ -86,7 +86,7 @@ jobs:
             docker-compose build
             docker tag repo_railsapp $DOCKER_HUB_USER_ID/ecommerce_railsapp:$CIRCLE_SHA1
             docker tag repo_railsapp $DOCKER_HUB_USER_ID/ecommerce_railsapp:latest
-            docker tag push $DOCKER_HUB_USER_ID/ecommerce_railsapp:$CIRCLE_SHA1
+            docker push $DOCKER_HUB_USER_ID/ecommerce_railsapp:$CIRCLE_SHA1
 
 workflows:
   version: 2
